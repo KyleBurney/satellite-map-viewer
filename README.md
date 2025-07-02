@@ -1,12 +1,13 @@
 # Satellite Visualizer
 
-A real-time satellite tracking application that consumes Kafka events from the satellite-tracker app and displays satellite positions on an interactive map.
+A real-time satellite tracking application that consumes Kafka events from [satellite-tracking-kafka-producer](https://github.com/KyleBurney/satellite-tracking-kafka-producer) and displays satellite positions on an interactive map.
 
 ## Architecture
 
 - **Backend**: Node.js server with Kafka consumer and WebSocket server
 - **Frontend**: React app with Leaflet maps for visualization
 - **Communication**: WebSocket for real-time updates from backend to frontend
+- **Serialization**: Apache Avro for serializing Kafka events
 
 ## Prerequisites
 
