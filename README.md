@@ -1,6 +1,8 @@
-# Satellite Visualizer
+# Satellite Map Viewer
 
 A real-time satellite tracking application that consumes Kafka events from [satellite-tracking-kafka-producer](https://github.com/KyleBurney/satellite-tracking-kafka-producer) and displays satellite positions on an interactive map.
+
+![Satellite Map](satellite-map.png)
 
 ## Architecture
 
@@ -13,7 +15,8 @@ A real-time satellite tracking application that consumes Kafka events from [sate
 
 - Node.js (v18+)
 - Running Kafka cluster (localhost:9092)
-- Running satellite-tracker app producing to `satellite-position-events` topic
+- Running Avro Schema Registry (localhost:8081)
+- Running [satellite-tracking-kafka-producer](https://github.com/KyleBurney/satellite-tracking-kafka-producer) app producing to `satellite-position-events` topic
 
 ## Setup
 
@@ -59,19 +62,3 @@ npm run dev
 ## API Endpoints
 
 - `GET /health` - Health check endpoint showing server status and connected clients
-
-## Data Structure
-
-The app expects satellite position events with the following structure:
-```json
-{
-  "satelliteId": "string",
-  "satelliteName": "string", 
-  "timestamp": "number (milliseconds)",
-  "latitude": "number",
-  "longitude": "number",
-  "altitude": "number (km)",
-  "velocity": "number (km/s)",
-  "source": "string"
-}
-```
